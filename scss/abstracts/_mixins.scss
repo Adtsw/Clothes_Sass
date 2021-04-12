@@ -1,0 +1,52 @@
+@mixin navigation {
+  &-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+
+  &-item {
+    list-style: none;
+  }
+
+  &-link {
+    font-size: size(sm);
+    color: color(primary);
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      color: lighten(color(primary), $amount: 40%);
+    }
+  }
+}
+
+@mixin flexPosition($justCont: center, $alignIte: center) {
+  display: flex;
+  justify-content: $justCont;
+  align-items: $alignIte;
+}
+
+@mixin footerList {
+  &-heading {
+    color: color(primary);
+    font-size: size(lg);
+  }
+
+  &-item {
+    margin: 1rem 0;
+    list-style: none;
+  }
+
+  &-link {
+    text-decoration: none;
+    font-size: size(xs);
+    color: lighten(color(primary), $amount: 15%);
+    transition: all 0.3s;
+
+    &:hover {
+      color: lighten(color(primary), $amount: 35%);
+    }
+  }
+}

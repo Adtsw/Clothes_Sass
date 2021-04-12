@@ -1,0 +1,101 @@
+.footer {
+  grid-column: 1/-1;
+  grid-row: 4/5;
+  padding: 5rem 0;
+  border-top: 0.1rem solid color(primary);
+  @include flexPosition(space-around);
+}
+
+.footer-nav {
+  @include footerList;
+}
+
+.contact-list {
+  @include footerList;
+}
+
+.contact {
+  &-heading {
+    font-size: size(xl);
+    color: color(primary);
+    text-align: center;
+  }
+
+  &-paragraph {
+    font-size: size(lg);
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .inputs-group {
+    display: flex;
+
+    input {
+      padding: 1rem;
+      margin: 1rem 0.5rem;
+      font-size: size(xs);
+      border: 0.1rem solid darken(color(primary), $amount: 10%);
+      border-radius: 0.3rem;
+      outline: none;
+      transition: border 0.3s;
+
+      &:focus:not([type="submit"]) {
+        border: 0.1rem solid darken(color(quaternary), $amount: 30%);
+      }
+    }
+
+    &-text {
+      width: 50%;
+    }
+
+    &-email {
+      width: 60%;
+    }
+
+    &-btn {
+      background-color: lighten(color(primary), $amount: 20%);
+      color: color(secondary);
+      width: 40%;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: color(primary);
+      }
+    }
+  }
+
+  .social-icons {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      text-decoration: none;
+      height: 4rem;
+      width: 4rem;
+      border: 0.1rem solid color(primary);
+      display: block;
+      border-radius: 100%;
+      @include flexPosition;
+
+      i {
+        font-size: size(md);
+      }
+    }
+  }
+
+  $colorMediaColor: 1 #3b5998, 2 #b31217, 3 #dc4e41, 4 #55acee, 5 #517fa4,
+    6 #0077b5;
+
+  @each $i in $colorMediaColor {
+    .social-icons-item:nth-child(#{nth($i, 1)}) .social-icons-link {
+      color: nth($list: $i, $n: 2);
+      border: 0.1rem solid nth($list: $i, $n: 2);
+    }
+  }
+}
